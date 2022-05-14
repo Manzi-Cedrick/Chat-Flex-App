@@ -1,0 +1,105 @@
+.search{
+    width:25vw;
+    height:100vh;
+    background: #171f51;
+}
+.title{
+    width: 100%;
+    padding: 1em 0.5em;
+}
+.title p{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.group{
+    background: rgba(0, 0, 0, 0.171);
+    color: white;
+    width: 20vh;
+    height: 6vh;
+    cursor: pointer;
+    outline: 2px solid aqua;
+    border-radius: 12px;
+}
+.search-input{
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+}
+.search-input i{
+    color: black;
+    background: white;
+    transform: translateX(20px)
+}
+.search-input input{
+    width: 16vw;
+    height: 6vh;
+    background: white;
+    outline: none;
+    padding:0 2em;
+    border: none; 
+    border-radius: 12px;
+    margin: 0 0.5em;
+}
+
+.chat-manage{
+    width: 100%;
+    margin: auto;
+}
+.chat-each{
+    height:10vh;
+    width: 100%;
+    background: #38446e;
+    color: rgba(255, 255, 255, 0.486);
+    margin: 0.2em 0em;
+    display: flex;
+    cursor: pointer;
+    gap: 0 15px;
+}
+.chat-each:hover{
+    background: red;
+}
+.chatters{
+    background: red;
+}
+.chat-profile{
+    height: 8vh;
+    width: 8vh;
+    margin: 0.5em 1.2em;
+    /* border-image:linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+    border: 2px solid #C850C0;
+}
+.chat-Names{
+    display: block;
+}
+.chat-Names p{
+    font-weight:bold;
+    color: white;
+    font-size: 1.1em;
+    padding-top:0.5em;
+}
+.chat-container{
+    width: 100%;
+    height: 78vh;
+    overflow-y: scroll;
+}
+.chat-container::-webkit-scrollbar{
+    width: 5px;
+}
+.chat-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+.chat-container::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+.images{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 50%;
+}
+.chat-each-change{
+    background: rgba(128, 128, 128, 0.972);
+
+}

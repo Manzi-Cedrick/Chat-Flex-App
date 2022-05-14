@@ -1,0 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-form {
+  background: #10163B;
+  font-family: sans-serif;
+}
+body{
+  background: #10163B;
+}
