@@ -54,7 +54,7 @@ const handleShowPass = () =>{
             <label>Email Address</label><input type="email" placeholder="Enter your email" value={email} onChange={handleEmail}/> {isValid && <small style={{ 'color':'red'}}>No email Please</small>}
             <label>Password</label>
             <input type={`${ showPass ? ' text' : 'password' }`} placeholder="Enter your password" value={password} onChange={handlepassword} autoComplete="true"/> {isValid && <small style={{ 'color':'red'}}>No password Please</small>}
-            <i className={`-translate-x-2 eye cursor-pointer`}>{showPass ? <FaEyeSlash onClick={handleShowPass}/> : <FaEye onClick={handleShowPass}/> }</i>
+            {showPass ? <FaEyeSlash onClick={handleShowPass} className="see"/> : <FaEye onClick={handleShowPass}  className="see"/> }
             <div className="checks">
                 <input type="checkbox"/><span>Remember me</span>
                 <span id="forgot">Forgot password?</span>

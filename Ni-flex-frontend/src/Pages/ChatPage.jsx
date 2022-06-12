@@ -13,15 +13,21 @@ function ChatPage() {
     const fetchData = async (token) =>{
         const decoded_token=jwt_decode(token)
         const searchId=decoded_token.id
-        const request = await axios.get('http://localhost:3500/api/user');
-        const LoggedUser = await axios.get(`http://localhost:3500/api/user/${searchId}`);
-        const ChatName = await axios.get(`http://localhost:3500/api/chat`);
+        const request = await axios.get('http://localhost:3500/api/user',{
+          headers: {'Content-type':'Application/json', Authorization: 'Bearer '+ decoded_token}
+        });
+        const LoggedUser = await axios.get(`http://localhost:3500/api/user/${searchId}`,{
+          headers: {'Content-type':'Application/json', Authorization: 'Bearer '+ decoded_token}
+        });
+        const ChatName = await axios.get(`http://localhost:3500/api/chatNow`,{
+          headers: {'Content-type':'Application/json', Authorization: 'Bearer '+ decoded_token}
+        });
         const ChatNamesAll= ChatName.data
         const dataUser = request.data
-        console.log("Data User",dataUser)
         const userData = LoggedUser.data
         setsingleLoggedUser(userData);
         setInfo(dataUser)
+        console.log("User Info :",userInfo)
         setChatName(ChatNamesAll)
     }
     useEffect(() => {

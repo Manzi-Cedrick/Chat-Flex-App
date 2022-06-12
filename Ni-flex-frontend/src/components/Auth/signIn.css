@@ -142,3 +142,8 @@ input[type='checkbox']{
       transform: rotate(360deg);
    }
 }
+.see{
+    float: right;
+    color: hotpink;
+    transform: translate(-5px,-30px);
+}

@@ -9,7 +9,7 @@ function Chat_main(props) {
   const [profile,setProfile]= useState(null)
   const [profileUser,setprofileUser] = useState('')
   const {userInfo,setInfo,selectedChat,setSelectedChat,chat_token,setChatToken,notification,setNotification,chats,setChats,singleLoggedUser,setsingleLoggedUser} = ChatState()
-  // console.log("Single Logged",singleLoggedUser)
+  console.log("MEssages Chat On Chat",props.messages)
   return (
       <>
         <ScrollableFeed className='scroll-customise'>
@@ -24,7 +24,7 @@ function Chat_main(props) {
                 <div className="chat-profile"><Avatar className="avatar" name={message.sender.name} src={message.sender.pic}  onClick={()=>{setprofileUser(message.sender.name);setModalOpen(true);setProfile(message.sender.pic)}} /></div>
                 </Tooltip>
             )}
-            <div className={`chat-message min-w-[2em] max-w-[4em] break-words ${message.sender._id === singleLoggedUser._id && 'msg_receive'} `}> <span>{message.sender.name}</span> <p>{message.content}</p></div> 
+            <div className={`chat-message min-w-[2em] max-w-[4em] break-words ${message.sender._id === singleLoggedUser._id && 'msg_receive'} `}> {message.sender._id != singleLoggedUser._id ? (<span>{message.sender.name}</span>) : ('')} <p>{message.content}</p></div> 
                 {profileModal && <Profile profile={profile} profileUser={profileUser} setModalOpen={setModalOpen}/>}
         </div>
         ))):(<>

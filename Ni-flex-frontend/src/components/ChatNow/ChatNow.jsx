@@ -7,11 +7,7 @@ import { FaSmileBeam ,FaPaperPlane } from 'react-icons/fa'
 import { Button } from '@chakra-ui/react'
 import { ChatState} from '../../context/ChatProvider'
 import axios from 'axios'
-// import Profile from 
-// import io from 'socket.io-client'
-// // import Chat_main from './Chat_main'
-// const ENDPOINT = 'http://localhost:3500';
-// var socket,selectedChatComparer;
+
 function ChatNow() {
   const [newMessage,setNewMessage]= useState('')
   const [messages,setMessages] = useState([])
@@ -25,7 +21,10 @@ function ChatNow() {
           Authorization : 'Bearer ' + chat_token
         }
       }
-      const FetChedResult = await axios.get(`http://localhost:3500/api/messages/${selectedChat._id}`,config)
+      const FetChedResult = await axios.get(`http://localhost:3500/api/messages/${selectedChat._id}`,{headers:{
+        'Content-type':'Application/json',
+        Authorization:   'Bearer ' + chat_token
+      }})
       setMessages(FetChedResult.data)
     }catch(error){
       console.log(error)
@@ -34,10 +33,6 @@ function ChatNow() {
   useEffect(() => {
     fetchMessages()
   }, [selectedChat])
-  // useEffect(()=>{
-  //   socket = io(ENDPOINT)
-  // },[])
-
   const handedMessageChange =(e)=>{
     setNewMessage(e.target.value)
   }
@@ -51,14 +46,14 @@ function ChatNow() {
         },
       }
       setNewMessage('')
-      let SendMessages= await axios.post(`http://localhost:3500/api/messages/sendMessage`,{
+      let SendMessages= await axios.post(`http://localhost:3500/api/messages/sendMessage`,
+      {
         content : newMessage,
         chatId : selectedChat._id
       },config)
       SendMessages = SendMessages.data 
       setMessages([...messages,SendMessages])
-      // console.log("Fetched Messages",SendMessages)
-
+      console.log("Fetched Messages",SendMessages)
     }catch(error){
       console.log(error)
     }
