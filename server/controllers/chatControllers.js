@@ -1,8 +1,7 @@
-// const express = require('express')
 const Chat = require('../models/ChatModel')
 const User = require('../models/UserModel');
 const accessChat = async (req, res) => {
-    const {userId} =  req.body
+    const {userId,chatName} =  req.body
     console.log(userId)
     if(!userId) {
         console.log('UserId Param does not send with request');
@@ -23,7 +22,7 @@ const accessChat = async (req, res) => {
         res.send(isChat[0])
     }else{
         var chatData = {
-            chatName : "sender",
+            chatName:chatName,
             isGroupChat : false,
             users : [req.user._id,userId]
         }
